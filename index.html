@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ASCII Christmas</title>
+  <meta name="description" content="Christmas animations drawn entirely with text characters, with carols.">
+  <meta name="theme-color" content="#05070f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305070f'/%3E%3Ctext x='16' y='24' font-family='monospace' font-size='24' text-anchor='middle' fill='%23ffc84a'%3E*%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <!-- intro: pick an animation -->
+  <main id="intro" class="view">
+    <div class="intro-inner">
+      <p class="prompt"><span class="gold">~/christmas</span> $ ls animations<span class="caret">_</span></p>
+      <h1 class="sr-only">ASCII Christmas</h1>
+      <pre id="title" class="title" aria-hidden="true"></pre>
+      <p id="countdown" class="countdown"></p>
+
+      <div class="cards">
+        <button type="button" class="card" id="go-tree" aria-label="Open the spinning tree animation">
+          <span class="card-head"><span class="num">01</span><span class="state">ready</span></span>
+          <pre class="mini" id="mini-tree" aria-hidden="true"></pre>
+          <span class="card-title">spinning tree</span>
+          <span class="card-text">A 3D tree built from characters. Swoosh across it to change how fast it spins. Carols play while you watch.</span>
+          <span class="card-foot">[ enter ] <span class="note">&#9834; sound on</span></span>
+        </button>
+
+        <div class="card locked" aria-disabled="true">
+          <span class="card-head"><span class="num">02</span><span class="state">soon</span></span>
+          <pre class="mini" id="mini-soon" aria-hidden="true"></pre>
+          <span class="card-title">next animation</span>
+          <span class="card-text">Still in the workshop. Check back before the 25th.</span>
+          <span class="card-foot">[ locked ]</span>
+        </div>
+      </div>
+
+      <p class="foot">best with sound on &middot; every carol here is public domain</p>
+    </div>
+  </main>
+
+  <!-- tree view controls -->
+  <div id="hud" class="view" hidden>
+    <button type="button" class="hud-btn hud-back" id="back">[ &lt; menu ]</button>
+    <button type="button" class="hud-btn hud-sound" id="sound" aria-pressed="true">[ &#9834; on ]</button>
+    <p class="now" id="now" aria-live="polite"></p>
+  </div>
+
+  <script src="js/music.js"></script>
+  <script src="js/scene.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
